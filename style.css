@@ -2,140 +2,123 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Verdana, Geneva, sans-serif;
-    background-color: #f4f4f4; /* Нейтральный фон для подложки */
+    font-family: sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    line-height: 1.6;
 }
 
-.background-animation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-    background: linear-gradient(45deg, #a8dadc, #457b9d, #1d3557);
-    background-size: 300% 300%;
-    animation: gradientAnimation 15s ease infinite;
-}
-
-@keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-.overlay {
+.background-blur {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
-    background-image: url('https://img1.akspic.ru/crops/6/2/0/8/7/178026/178026-chernogoriya_durmitor-durak-glinyanyj_cvetok-kanon_reki_tara-gora-3840x2160.jpg');
+    background-image: url('img/fon.jpg'); /* Укажите путь к вашему изображению */
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
-    filter: brightness(0.8); /* Немного затемним для лучшей читаемости текста */
+    background-repeat: no-repeat;
+    filter: blur(10px);
 }
 
 .content {
     position: relative;
     z-index: 1;
-    padding-top: 20px; /* Небольшой отступ сверху */
+    padding: 40px 20px;
 }
 
 #main-container {
-    max-width: 440px;
-    margin: 40px auto; /* Добавим отступы сверху и снизу */
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(5px);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    border-radius: 12px; /* Слегка скруглим углы */
-    overflow: hidden; /* Для корректного отображения backdrop-filter */
+    max-width: 960px;
+    margin: 40px auto;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .header-section {
-    padding: 30px 24px 20px;
+    padding: 40px;
     text-align: center;
+    background-color: #e0f2f7;
+    border-bottom: 1px solid #ccc;
 }
 
 .profile-img {
-    height: 100px;
-    width: 100px;
+    height: 120px;
+    width: 120px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .department-title {
-    font-size: 28px;
-    color: #2c3e50; /* Более приглушенный цвет */
-    line-height: 1.3;
-    margin-bottom: 20px;
+    text-align: justify;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1. 5 rem;
+    font-weight: 600;
+    line-height: 1.6;
+    margin: 20px auto;
+    max-width: 900px;
+    padding: 0 20px;
+    color: #2c3e50;
 }
 
 .link-section {
-    padding: 10px 24px;
+    padding: 20px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.col-12 {
+    flex-basis: 100%;
+}
+
+@media (min-width: 768px) {
+    .col-12 {
+        flex-basis: calc(50% - 10px);
+    }
+}
+
+@media (min-width: 992px) {
+    .col-12 {
+        flex-basis: calc(33.33% - 14px);
+    }
 }
 
 .custom-btn {
-    display: block;
-    background-color: #34495e; /* Темно-серый цвет кнопки */
-    color: #fff;
-    padding: 16px 30px;
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    color: #007bff;
+    padding: 20px;
+    border-radius: 8px;
     text-align: center;
-    line-height: 1.5;
+    line-height: 1.4;
     font-size: 16px;
     text-decoration: none;
-    margin-bottom: 15px;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.1);
 }
 
 .custom-btn:hover {
-    transform: scale(1.03);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-    background-color: #2c3e50;
+    transform: scale(1.05);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+    background-color: #f8f9fa;
 }
 
-@media (max-width: 576px) {
-    #main-container {
-        margin: 20px auto;
-    }
-    .department-title {
-        font-size: 22px;
-    }
-    .custom-btn {
-        padding: 14px 24px;
-        font-size: 15px;
-    }
-}
-
-.leaf {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" fill="%23a0522d"%3E%3Cpath d="M20 8L12 1l-8 7c-1.1.6-1.1 2 .1 2.6l8 6 8-6c1.2-.6 1.2-2-.1-2.6zM12 13l-6-4 6-4 6 4-6 4z"/%3E%3C/svg%3E'); /* Изображение кленового листа (можно заменить на другое) */
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 0;
-    animation: fall linear infinite;
-    pointer-events: none; /* Чтобы листья не мешали взаимодействию */
-}
-
-@keyframes fall {
-    to {
-        transform: translateY(105vh) rotate(360deg); /* Вернул вращение и небольшую прозрачность */
-        opacity: 0.5;
-    }
+.custom-btn i {
+    font-size: 2em;
+    margin-bottom: 10px;
 }
 
 #welcome-overlay {
@@ -144,69 +127,80 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Менее интенсивный фон */
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    opacity: 0; /* Начальная прозрачность для анимации появления */
-    animation: fadeIn 0.5s ease-out forwards; /* Анимация появления */
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
 }
 
 #welcome-overlay-content {
-    background-color: rgba(0, 0, 0, 0.8); /* Черный полупрозрачный фон */
-    padding: 30px;
+    background-color: #fff;
+    padding: 40px;
     border-radius: 15px;
     text-align: center;
-    color: white; /* Белый цвет шрифта для текста внутри блока */
+    color: #333;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 #welcome-overlay-content h2 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 2.5em; /* Немного увеличим размер шрифта */
+    font-size: 2.8em;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.2); /* Белая тень для лучшей читаемости */
+    color: #007bff;
 }
 
 #welcome-overlay-image {
-    max-width: 200px; /* Уменьшим размер логотипа для вращения */
+    max-width: 150px;
     height: auto;
     display: block;
     margin: 0 auto 25px;
-    animation: rotateLogo 1s ease-out; /* Анимация вращения логотипа */
+    transition: transform 0.5s ease-in-out; /* Добавляем transition для плавности */
 }
 
-@keyframes rotateLogo {
-    from {
-        transform: rotate(0deg) scale(0.8);
-        opacity: 0;
-    }
-    to {
-        transform: rotate(360deg) scale(1);
-        opacity: 1;
-    }
+.rotate-once {
+    animation: rotateOnce 0.5s ease-in-out;
+}
+
+@keyframes rotateOnce {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#welcome-overlay-content .form-check {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Центрируем по горизонтали */
+    margin-bottom: 15px;
+    gap: 10px; /* Расстояние между чекбоксом и текстом */
+}
+
+#welcome-overlay-content .form-check-input {
+    appearance: auto; /* Возвращаем стандартный внешний вид */
+    position: static;
+    opacity: 1;
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    cursor: pointer;
+}
+
+#welcome-overlay-content .form-check-label {
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
 }
 
 #confirm-welcome {
-    padding: 12px 25px;
-    background-color: #5cb85c; /* Зеленый цвет кнопки */
+    padding: 14px 30px;
+    background-color: #007bff;
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 1.2em; /* Немного увеличим размер шрифта кнопки */
+    font-size: 1.2em;
     transition: background-color 0.3s ease;
 }
 
 #confirm-welcome:hover {
-    background-color: #4cae4c;
+    background-color: #0056b3;
 }
