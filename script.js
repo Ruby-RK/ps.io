@@ -2,55 +2,48 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Страница полностью загружена');
 
     const welcomeOverlay = document.getElementById('welcome-overlay');
+    const welcomeOverlayContent = document.getElementById('welcome-overlay-content');
     const confirmWelcomeButton = document.getElementById('confirm-welcome');
+    const dataProcessingAgreementCheckbox = document.getElementById('dataProcessingAgreement');
+    const welcomeOverlayImage = document.getElementById('welcome-overlay-image');
 
-    if (welcomeOverlay && confirmWelcomeButton) {
-        confirmWelcomeButton.addEventListener('click', function() {
-            welcomeOverlay.style.display = 'none'; // Скрываем приветственное окно
-        });
-    } else {
-        console.error('Элемент приветственного окна или кнопка подтверждения не найдены.');
-    }
-
-    const mainContainer = document.getElementById('main-container');
-    const numberOfLeaves = 20; // Количество падающих листьев
-
-    if (mainContainer) { // Проверяем, существует ли элемент
-        function createLeaf() {
-            const leaf = document.createElement('div');
-            leaf.classList.add('leaf');
-
-            // Случайное положение по горизонтали
-            const startPosition = Math.random() * 100;
-            leaf.style.left = `${startPosition}vw`;
-
-            // Случайная задержка перед началом падения
-            const animationDelay = Math.random() * 5;
-            leaf.style.animationDelay = `${animationDelay}s`;
-
-            // Случайная продолжительность анимации
-            const animationDuration = 5 + Math.random() * 5;
-            leaf.style.animationDuration = `${animationDuration}s`;
-
-            // Случайный размер
-            const size = 10 + Math.random() * 15;
-            leaf.style.width = `${size}px`;
-            leaf.style.height = `${size}px`;
-
-            // Случайный угол наклона
-            const rotation = Math.random() * 360;
-            leaf.style.transform = `rotate(${rotation}deg)`;
-
-            mainContainer.appendChild(leaf);
+    if (welcomeOverlay && welcomeOverlayContent) {
+        // Функция для скрытия приветственного окна
+        function hideWelcomeOverlay() {
+            welcomeOverlay.style.display = 'none';
         }
 
-        for (let i = 0; i < numberOfLeaves; i++) {
-            createLeaf();
+        // Анимация вращения иконки один раз
+        function rotateIconOnce() {
+            welcomeOverlayImage.classList.add('rotate-once');
+            // Удаляем класс после завершения анимации
+            setTimeout(() => {
+                welcomeOverlayImage.classList.remove('rotate-once');
+            }, 500); // Длительность анимации
+        }
+
+        // Запускаем вращение иконки при загрузке
+        rotateIconOnce();
+
+        // Обработчик наведения на иконку
+        welcomeOverlayImage.addEventListener('mouseenter', rotateIconOnce);
+
+        // Обработчик изменения состояния чекбокса
+        if (dataProcessingAgreementCheckbox && confirmWelcomeButton) {
+            dataProcessingAgreementCheckbox.addEventListener('change', function() {
+                confirmWelcomeButton.disabled = !this.checked; // Разблокируем кнопку, если чекбокс отмечен
+            });
+
+            // Обработчик клика по кнопке "Подтвердить"
+            confirmWelcomeButton.addEventListener('click', hideWelcomeOverlay);
+        } else {
+            console.error('Элемент чекбокса или кнопка подтверждения не найдены.');
         }
     } else {
-        console.error('Элемент с id "main-container" не найден.');
+        console.error('Элемент приветственного окна не найден.');
     }
 
+    // ... остальной ваш JavaScript код (для кнопок) ...
     const buttons = document.querySelectorAll('.custom-btn');
 
     buttons.forEach(button => {
