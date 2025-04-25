@@ -22,18 +22,24 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'><text y='1.2em' font-size='96'>⭐</text></svg>">
 </head>
 <body data-controller="page-render" data-page-id="971392">
+    <div class="background-blur"></div>
     <div id="welcome-overlay">
         <div id="welcome-overlay-content">
             <img id="welcome-overlay-image" src="https://upload.wikimedia.org/wikipedia/commons/4/42/1772b22ee5a7c0ab43dfcfaf3da58aa6_original.1402423.png" alt="Приветствие">
             <h2>Добро пожаловать!</h2>
             <h3> На страницы ДПС по АО КНБ РК </h3>
 
-            <button id="confirm-welcome">Подтвердить</button>
+           <div class="form-check">
+  <input class="form-check-input" type="checkbox" id="dataProcessingAgreement">
+  <label class="form-check-label" for="dataProcessingAgreement">
+    Согласен на обработку персональных данных
+  </label>
+</div>
+
+            <button id="confirm-welcome" disabled>Подтвердить</button>
         </div>
     </div>
 
-    <div class="background-animation"></div>
-    <div class="overlay"></div>
     <div class="content">
         <div id="main-container">
             <div class="container-fluid gx-0 header-section">
@@ -43,10 +49,10 @@
                              alt="Логотип Департамента пограничной службы"
                              class="profile-img">
                     </div>
-                    <div class="col-12 d-flex justify-content-center align-items-center">
-                        <h1 class="department-title">
-                            Департамент пограничной службы<br>по Алматинской области
-                        </h1>
+                    <div class="col-12">
+                        <h6 class="department-title">
+                            Департамент пограничной службы по Алматинской области
+                        </h6>
                     </div>
                 </div>
             </div>
@@ -55,37 +61,22 @@
                 <div class="row gx-0">
                     <div class="col-12">
                         <a href="https://www.gov.kz/memleket/entities/shekaraknb?lang=ru" class="custom-btn">
-                            Веб-сайт ПС КНБ РК
+                            <i class="bi bi-globe"></i> Веб-сайт ПС КНБ РК
                         </a>
                     </div>
-                </div>
-            </div>
-
-            <div class="container-fluid gx-0 link-section">
-                <div class="row gx-0">
                     <div class="col-12">
                         <a href="https://www.tiktok.com/@almaty.dps" class="custom-btn">
-                            Tik-Tok
+                            <i class="bi bi-tiktok"></i> Tik-Tok
                         </a>
                     </div>
-                </div>
-            </div>
-
-            <div class="container-fluid gx-0 link-section">
-                <div class="row gx-0">
                     <div class="col-12">
                         <a href="https://www.instagram.com/almaty_dps?igsh=MWRpNnhzMmNnYm5tYQ==" class="custom-btn">
-                            Instagram
+                            <i class="bi bi-instagram"></i> Instagram
                         </a>
                     </div>
-                </div>
-            </div>
-
-            <div class="container-fluid gx-0 link-section">
-                <div class="row gx-0">
                     <div class="col-12">
                         <a href="https://drive.google.com/drive/folders/1MI0pZUlWBVSJz2tU-8dc7vdVfOw9V_3e?usp=sharing" class="custom-btn">
-                            Учебный материал
+                            <i class="bi bi-folder-fill"></i> Учебный материал
                         </a>
                     </div>
                 </div>
