@@ -204,3 +204,148 @@ body {
 #confirm-welcome:hover {
     background-color: #0056b3;
 }
+.recruitment-container {
+    position: relative; /* Для позиционирования выпадающего блока */
+}
+
+.recruitment-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff; /* Белый фон, как у остальных кнопок */
+    color: #007bff; /* Синий цвет, как у остальных кнопок */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    line-height: 1.4;
+    font-size: 16px;
+    text-decoration: none;
+    margin-bottom: 0;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.1);
+    cursor: pointer; /* Добавляем курсор "рука" */
+    border: none; /* Убираем стандартную обводку кнопки */
+}
+
+.recruitment-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+    background-color: #f8f9fa;
+}
+
+.recruitment-button i {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.recruitment-info {
+    position: absolute;
+    top: 100%; /* Размещаем под кнопкой */
+    left: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 99; /* Чтобы был над другими элементами */
+    display: none; /* Скрываем по умолчанию */
+}
+.recruitment-info {
+    position: fixed; /* Фиксированное положение */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Центрирование */
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 20px; /* Уменьшим отступы, если нужно еще компактнее */
+    z-index: 101; /* Выше, чем overlay */
+    text-align: left;
+    width: 80%; /* Зададим максимальную ширину */
+    max-width: 600px; /* Ограничим максимальную ширину на больших экранах */
+    overflow-y: auto; /* Добавим прокрутку, если контент не помещается */
+    max-height: 80vh; /* Ограничим максимальную высоту */
+}
+
+.recruitment-info h3 {
+    margin-top: 0;
+    color: #28a745;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.recruitment-info h4 {
+    margin-top: 15px;
+    color: #495057;
+}
+
+.recruitment-info ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.recruitment-info strong {
+    font-weight: bold;
+    color: #28a745;
+}
+
+.recruitment-info .btn-primary {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    margin-top: 20px;
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.recruitment-info .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Добавим полупрозрачный фон для затемнения остальной части страницы */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Черный цвет с 50% прозрачностью */
+    z-index: 99; /* Под выпадающим блоком */
+    display: none; /* Скрываем по умолчанию */
+}
+.footer {
+    background-color: #f0f0f0; /* Более светлый фон */
+    color: #555; /* Темный цвет текста для лучшей читаемости */
+    padding: 25px 0; /* Увеличенный отступ сверху и снизу */
+    font-size: 0.9em;
+    border-top: 1px solid #ccc; /* Более тонкая верхняя граница */
+    text-align: center; /* Центрируем текст */
+}
+
+.footer {
+    position: fixed; /* Фиксированное положение внизу экрана */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000; /* Черный фон */
+    color: #fff; /* Белый цвет текста */
+    padding: 10px 0; /* Небольшие отступы сверху и снизу */
+    font-size: 0.9em;
+    text-align: center; /* Центрирование текста */
+    z-index: 100; /* Чтобы подвал был поверх другого контента */
+}
+
+.footer p {
+    margin: 0;
+    font-weight: bold; /* Жирный шрифт */
+}
