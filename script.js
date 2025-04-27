@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Код для кнопки "Набор кандидатов" и выпадающего блока
-   const recruitmentButton = document.querySelector('.recruitment-button');
+    const recruitmentButton = document.querySelector('.recruitment-button');
     const recruitmentInfo = document.querySelector('.recruitment-info');
     const overlay = document.createElement('div'); // Создаем элемент overlay
 
@@ -59,8 +59,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (recruitmentButton && recruitmentInfo && overlay) {
         recruitmentButton.addEventListener('click', function(event) {
             event.stopPropagation();
-            recruitmentInfo.style.display = 'block';
-            overlay.style.display = 'block'; // Показываем затемнение
+            recruitmentInfo.style.display = (recruitmentInfo.style.display === 'none' || recruitmentInfo.style.display === '') ? 'block' : 'none';
+            overlay.style.display = (recruitmentInfo.style.display === 'block') ? 'block' : 'none';
         });
 
         // Закрываем выпадающий блок и затемнение при клике за его пределами или на затемнении
